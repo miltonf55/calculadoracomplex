@@ -1,0 +1,79 @@
+<div class=".container-lg limit">
+    <div class="row">
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="formZ1" class="form-label">Ingrese Z₁</label>
+          <input type="text" class="form-control" id="formZ1" placeholder="x₁+y₁i" required [(ngModel)]="z1"> 
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="formZ2" class="form-label">Ingrese Z₂</label>
+          <input type="text" class="form-control" id="formZ2" placeholder="x₂+y₂i" required [(ngModel)]="z2">
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="mb-3">
+          <label for="formN" class="form-label">Ingrese n</label>
+          <input type="number" class="form-control" id="formN" placeholder="n" pattern="[0-9]+" required [(ngModel)]="n">
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="mb-3">
+          <label for="formM" class="form-label">Ingrese m</label>
+          <input type="number" class="form-control" id="formN" placeholder="m" pattern="[0-9]+" required [(ngModel)]="m">
+        </div>
+      </div>
+      <div class="col-2">
+        <button type="button" class="btn btn-outline-dark btn-lg" (click)="calcular()">Calcular</button>
+      </div>
+    </div>
+    <div class="row" *ngIf="dataok">
+      <div class="col-4">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            Suma de Z₁+Z₂: {{suma[0].toFixed(3)+'+('+suma[1].toFixed(3)+')i' }}
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            Multiplicación de Z₁*Z₂: {{multi[0].toFixed(3)+'+('+multi[1].toFixed(3)+')i'}}
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            División de Z₁/Z₂: {{div[0].toFixed(3)+'+('+div[1].toFixed(3)+')i'}}
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            Potencia de Z₁^{{n}}: {{pow[0].toFixed(3)+'+('+pow[1].toFixed(3)+')i'}}
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Raíces {{m}} de Z₂</div>
+              <p *ngFor="let r of root; i let i = index"> {{r[0].toFixed(3)+'+('+r[1].toFixed(3)+')i'}} </p>
+            </div>
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            Función exponencial de Z₁: {{exp[0].toFixed(3)+'+('+exp[1].toFixed(3)+')i'}}
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            Seno de Z₁: {{sin[0].toFixed(3)+'+('+sin[1].toFixed(3)+')i'}}
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            Coseno de Z₂: {{cos[0].toFixed(3)+'+('+cos[1].toFixed(3)+')i'}}
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            Tangente de Z₁+Z₂: {{tan[0].toFixed(3)+'+('+tan[1].toFixed(3)+')i'}}
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-8">
+        <canvas id="grafica"> {{chart}} </canvas>
+      </div>
+    </div>
+</div>
