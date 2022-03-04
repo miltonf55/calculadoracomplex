@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
-
 
 @Component({
   selector: 'app-complex',
@@ -12,6 +10,8 @@ export class ComplexComponent implements OnInit {
   dataok:boolean = false;
   z1:string='';
   z2:string='';
+  z1s:number[]=[0,0];
+  z2s:number[]=[0,0];
   n:number=0;
   m:number=0;
   suma:number[]=[0,0];
@@ -23,50 +23,13 @@ export class ComplexComponent implements OnInit {
   sin:number[]=[0,0];
   cos:number[]=[0,0];
   tan:number[]=[0,0];
-  public chart: any = null;
 
   
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.chart = new Chart('grafica',
-    {
-      type: 'bar',
-      data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-          datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              y: {
-                  beginAtZero: true
-              }
-          }
-      }
-  });
-
-  }
+  ngOnInit(): void {}
+  
   calcular(){
     var z1s:number[];
     var z2s:number[];
@@ -75,6 +38,8 @@ export class ComplexComponent implements OnInit {
     var bRoot = new Array<any>();
     z1s=this.separateRI(this.z1)
     z2s=this.separateRI(this.z2)
+    this.z1s=z1s;
+    this.z2s=z2s;
     this.suma=this.sumaC(z1s,z2s);
     this.multi=this.multiC(z1s,z2s);
     this.div=this.divC(z1s,z2s);
