@@ -48,57 +48,57 @@ export class LineChartComponent implements OnChanges {
     { 
       data: [{x: this.multi[0], y: this.multi[0]}], 
       label: 'Multiplicación',
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
+      backgroundColor: 'rgba(0, 255, 0, 0.3)',
+      borderColor: 'green',
       pointRadius: 10
     },
     { 
       data: [{x: this.div[0], y: this.div[1]}], 
       label: 'División',
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
+      backgroundColor: 'rgba(78, 2, 80, 0.3)',
+      borderColor: 'rgba(78, 2, 80, 1)',
       pointRadius: 10
     },
     { 
       data: [{x: this.pow[0], y: this.pow[1]}], 
       label: 'Potencia',
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
+      backgroundColor: 'rgba(81, 118, 100,0.3)',
+      borderColor: 'rgba(81, 118, 100,1)',
       pointRadius: 10
     },
     { 
-      data: [{x: 0, y: 0}], 
+      data: [], 
       label: 'Raíz',
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
+      backgroundColor: 'rgba(164, 175, 105,0.3)',
+      borderColor: 'rgba(164, 175, 105,1)',
       pointRadius: 10
     },
     { 
       data: [{x: this.exp[0], y: this.exp[1]}], 
       label: 'Exponencial',
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
+      backgroundColor: 'rgba(244, 211, 94,0.3)',
+      borderColor: 'rgba(244, 211, 94,1)',
       pointRadius: 10
     },
     { 
       data: [{x: this.sin[0], y: this.sin[1]}], 
       label: 'Seno',
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
+      backgroundColor: 'rgba(255, 155, 66,0.3)',
+      borderColor: 'rgba(255, 155, 66, 1)',
       pointRadius: 10
     },
     { 
       data: [{x: this.cos[0], y: this.cos[1]}], 
       label: 'Coseno',
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
+      backgroundColor: 'rgba(193, 145, 161,0.3)',
+      borderColor: 'rgba(193, 145, 161, 1)',
       pointRadius: 10
     },
     { 
       data: [{x: this.tan[0], y: this.tan[1]}], 
       label: 'Tangente',
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
+      backgroundColor: 'rgba(185, 19, 114, 0.3)',
+      borderColor: 'rgba(185, 19, 114, 1)',
       pointRadius: 10
     }
   ];
@@ -160,6 +160,7 @@ export class LineChartComponent implements OnChanges {
       this.lineChartData[3].data=[{x: this.multi[0], y: this.multi[1]}];
       this.lineChartData[4].data=[{x: this.div[0], y: this.div[1]}];
       this.lineChartData[5].data=[{x: this.pow[0], y: this.pow[1]}];
+      this.lineChartData[6].data=[];
       for(let item of this.root) {this.lineChartData[6].data.push({x: item[0], y: item[1]});}
       this.lineChartData[7].data=[{x: this.exp[0], y: this.exp[1]}];
       this.lineChartData[8].data=[{x: this.sin[0], y: this.sin[1]}];

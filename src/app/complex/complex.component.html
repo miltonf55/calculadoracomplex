@@ -25,50 +25,41 @@
         </div>
       </div>
       <div class="col-2">
-        <button type="button" class="btn btn-outline-dark btn-lg" (click)="calcular()">Calcular</button>
+        <button type="button" class="btn btn-outline-dark btn-lg" id="btnc" (click)="calcular()">Calcular</button>
       </div>
     </div>
-    <div class="row" *ngIf="dataok">
+    <div class="row" *ngIf="dataok; else elseBlock">
       <div class="col-4">
         <ul class="list-group list-group-flush">
           <li class="list-group-item d-flex justify-content-between align-items-start">
-            Suma de Z₁+Z₂: {{suma[0].toFixed(3)+'+('+suma[1].toFixed(3)+')i' }}
-            <span class="badge bg-primary rounded-pill">14</span>
+            Suma de Z₁+Z₂: <mark>{{suma[0].toFixed(3)+'+('+suma[1].toFixed(3)+')i' }}</mark>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start">
-            Multiplicación de Z₁*Z₂: {{multi[0].toFixed(3)+'+('+multi[1].toFixed(3)+')i'}}
-            <span class="badge bg-primary rounded-pill">14</span>
+            Multiplicación de Z₁*Z₂: <mark>{{multi[0].toFixed(3)+'+('+multi[1].toFixed(3)+')i'}}</mark>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start">
-            División de Z₁/Z₂: {{div[0].toFixed(3)+'+('+div[1].toFixed(3)+')i'}}
-            <span class="badge bg-primary rounded-pill">14</span>
+            División de Z₁/Z₂: <mark>{{div[0].toFixed(3)+'+('+div[1].toFixed(3)+')i'}}</mark>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start">
-            Potencia de Z₁^{{n}}: {{pow[0].toFixed(3)+'+('+pow[1].toFixed(3)+')i'}}
-            <span class="badge bg-primary rounded-pill">14</span>
+            Potencia de Z₁^{{n}}: <mark>{{pow[0].toFixed(3)+'+('+pow[1].toFixed(3)+')i'}}</mark>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
               <div class="fw-bold">Raíces {{m}} de Z₂</div>
               <p *ngFor="let r of root; i let i = index"> {{r[0].toFixed(3)+'+('+r[1].toFixed(3)+')i'}} </p>
             </div>
-            <span class="badge bg-primary rounded-pill">14</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start">
-            Función exponencial de Z₁: {{exp[0].toFixed(3)+'+('+exp[1].toFixed(3)+')i'}}
-            <span class="badge bg-primary rounded-pill">14</span>
+            Función exponencial de Z₁: <mark>{{exp[0].toFixed(3)+'+('+exp[1].toFixed(3)+')i'}}</mark>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start">
-            Seno de Z₁: {{sin[0].toFixed(3)+'+('+sin[1].toFixed(3)+')i'}}
-            <span class="badge bg-primary rounded-pill">14</span>
+            Seno de Z₁: <mark>{{sin[0].toFixed(3)+'+('+sin[1].toFixed(3)+')i'}}</mark>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start">
-            Coseno de Z₂: {{cos[0].toFixed(3)+'+('+cos[1].toFixed(3)+')i'}}
-            <span class="badge bg-primary rounded-pill">14</span>
+            Coseno de Z₂: <mark>{{cos[0].toFixed(3)+'+('+cos[1].toFixed(3)+')i'}}</mark>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start">
-            Tangente de Z₁+Z₂: {{tan[0].toFixed(3)+'+('+tan[1].toFixed(3)+')i'}}
-            <span class="badge bg-primary rounded-pill">14</span>
+            Tangente de Z₁+Z₂: <mark>{{tan[0].toFixed(3)+'+('+tan[1].toFixed(3)+')i'}}</mark>
           </li>
         </ul>
       </div>
@@ -76,4 +67,9 @@
         <app-line-chart [z1s]="z1s" [z2s]="z2s" [suma]="suma" [multi]="multi" [div]="div" [root]="root" [pow]="pow" [exp]="exp" [sin]="sin" [cos]="cos" [tan]="tan"></app-line-chart>
       </div>
     </div>
+    <ng-template #elseBlock>
+      <div class="alert alert-warning" role="alert">
+          Debe ingresar Z en el formato dado o no jala, x+yi, aunque puede ingresar solo el número real o el imaginario (por ejemplo solo "-5", solo "-4i" o "i" sola).
+      </div>
+  </ng-template>
 </div>
