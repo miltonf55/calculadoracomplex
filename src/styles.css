@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.limit{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+}
+.btnc{
+    margin-top: 5%;
+    margin-left: 5%;
+}

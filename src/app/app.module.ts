@@ -7,12 +7,16 @@ import { ComplexComponent } from './complex/complex.component';
 import { FormsModule } from '@angular/forms';
 import { NgChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './line-chart/line-chart.component';
+import { CircunferenciaComponent } from './circunferencia/circunferencia.component';
+import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ComplexComponent,
-    LineChartComponent
+    LineChartComponent,
+    CircunferenciaComponent,
+    BubbleChartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,63 @@
+<div class=".container-lg limit">
+    <div class="row">
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="formZ1" class="form-label">Ingrese la ecuación de la circunferencia</label>
+          <input type="text" class="form-control" id="formC" placeholder="" required [(ngModel)]="c"> 
+        </div>
+      </div>  
+      <div class="col-2">
+        <div class="mb-3">
+          <label for="formZ1" class="form-label">Ingrese α</label>
+          <input type="text" class="form-control" id="formA" placeholder="x+yi" required [(ngModel)]="a"> 
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="mb-3">
+          <label for="formZ2" class="form-label">Ingrese β</label>
+          <input type="text" class="form-control" id="formB" placeholder="x+yi" required [(ngModel)]="b">
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="mb-3">
+          <label for="formN" class="form-label">Ingrese δ</label>
+          <input type="text" class="form-control" id="formD" placeholder="x+yi" required [(ngModel)]="d">
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="mb-3">
+          <label for="formM" class="form-label">Ingrese φ</label>
+          <input type="text" class="form-control" id="formP" placeholder="x+yi" required [(ngModel)]="p">
+        </div>
+      </div>
+      <div class="col-1">
+        <button type="button" class="btn btn-outline-dark btn-lg btnc" id="btnc" (click)="calcular()">Calcular</button>
+      </div>
+    </div>
+    <div class="row" *ngIf="dataok; else elseBlock">
+      <div class="col-4">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            Primero punto: <mark>{{p1[0].toFixed(3)+'+('+p1[1].toFixed(3)+')i' }}</mark>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            Primero punto: <mark>{{p2[0].toFixed(3)+'+('+p2[1].toFixed(3)+')i' }}</mark>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            Primero punto: <mark>{{p2[0].toFixed(3)+'+('+p2[1].toFixed(3)+')i' }}</mark>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            Ecuación ordinaria de la circunferencia invertida: <mark>{{'(x-('+ci[0].toFixed(3)+'))^2+(y-'+ci[1].toFixed(3)+'))^2='+ci[2].toFixed(3)+'^2' }}</mark>
+          </li>
+        </ul>
+      </div>
+      <div class="col-8">
+        <app-bubble-chart [ci]="ci" [cs]="cs"></app-bubble-chart>
+      </div>
+    </div>
+    <ng-template #elseBlock>
+      <div class="alert alert-warning" role="alert">
+          Debe ingresar la ecuación de la circunferencia en este formato "x^2+y^2+Dx+Ey+F=0" o "(x-h)^2+(y-k)^2=r^2", r^2 solo el valor. De no ponerlo así no aseguro el correcto funcionamiento de esta cosa.
+      </div>
+  </ng-template>
+</div>
