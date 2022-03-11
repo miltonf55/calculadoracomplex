@@ -16,8 +16,8 @@ export class BubbleChartComponent implements OnChanges {
     scales: {
       x: {
         beginAtZero: true,
-        suggestedMax: 10,
-        suggestedMin: -10,
+        suggestedMax: 1,
+        suggestedMin: -1,
         ticks: {},
         grid: {
           borderColor: 'red'
@@ -33,8 +33,8 @@ export class BubbleChartComponent implements OnChanges {
       },
       y: {
         beginAtZero: true,
-        suggestedMax: 10,
-        suggestedMin: -10,
+        suggestedMax: 1,
+        suggestedMin: -1,
         ticks: {},
         grid: {
           borderColor: 'red'
